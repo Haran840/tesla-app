@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class PrependDollarPipe implements PipeTransform {
 
-  transform(value: string): string {
+  transform(value: string | null): string {
     if(value == null || typeof value !== 'string'){
       return "";
     } 

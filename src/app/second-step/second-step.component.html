@@ -1,1 +1,23 @@
-<p>second-step works!</p>
+<div>
+    <h1>Step 2 : Select your config and options</h1>
+    <form>
+        <div>
+            <label for="config">Config</label>
+            <select id="configSelect" [(ngModel)]="selectedConfig" name="config" (ngModelChange)="onSelecConfigChanged()"> 
+                <option *ngFor="let config of vehicleOptions?.configs" [ngValue]="config">{{config.description}}</option>
+            </select>
+        </div>
+       
+       <div>Range: {{selectedConfig?.range}} miles - Max Speed: {{selectedConfig?.speed}} - Cost:  {{selectedConfig?.price | number: '1.2-2' | prependDollar}}</div>
+        
+       <div *ngIf="vehicleOptions?.towHitch">
+        <label for="towHitch">Tow hitch? </label>
+        <input type="checkbox" id="includeTow" name="towHitch" [(ngModel)]="towHitchChecked" (ngModelChange)="onSelecConfigChanged()">
+        </div>
+ 
+        <div *ngIf="vehicleOptions?.yoke">
+        <label for="yoke">Yoke steering wheel? </label>
+        <input type="checkbox" id="includeYoke" name="yoke" [(ngModel)]="yokeChecked" (ngModelChange)="onYokeChangedApplied()">
+        </div>
+    </form>
+   </div>	
