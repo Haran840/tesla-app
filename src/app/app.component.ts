@@ -4,12 +4,14 @@ import {AsyncPipe, JsonPipe} from '@angular/common';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [AsyncPipe, JsonPipe],
-  template: `
-    <h1>Hello from {{ name }}!</h1>
-  `,
+  imports: [AsyncPipe, JsonPipe],  
+  templateUrl: './app.component.html',
 })
 export class AppComponent {
-  name = 'Haran Angular setup';
 
+  currentStep: number = 1;
+  highlightStep(step: number): void {
+    this.currentStep = step;
+  }
+  
 }
