@@ -2,20 +2,24 @@
   <div class="step-box">
   <nav class="multi-step-form row">
     <div class="col-sm-4">
-      <button class="step" [class.active]="currentStep === 1">
+      <span class="spacer"></span>
+      <button class="step" id="step1" routerLink="firstStep">
         <h2>Step 1</h2>
       </button>
     </div>
     <div class="col-sm-4">
-      <button class="step" [class.active]="currentStep === 2">
+      <button class="step" id="step2"  [disabled]="secondStepDisabled" routerLink="secondStep">
         <h2>Step 2</h2>
       </button>
     </div>
     <div class="col-sm-4">
-      <button class="step" [class.active]="currentStep === 3">
+      <button class="step" id="step3" [disabled]="thirdStepDisabled" routerLink="thirdStep">
         <h2>Step 3</h2>
       </button>
     </div>
   </nav>
+  <router-outlet></router-outlet>
+  <hr>
+    <img *ngIf="!secondStepDisabled"[src]="displayImage"/>
  </div>
 </div>

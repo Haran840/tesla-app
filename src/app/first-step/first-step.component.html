@@ -1,0 +1,29 @@
+<div>
+    <h1>Step 1: Choose your model and color</h1>
+    <form>
+        <div class="row">
+            <div class="col">
+                <label for="model">Model</label>
+                <select 
+                    [(ngModel)]="selectedModel" 
+                    (ngModelChange)="onModalChangeApplied()"
+                    name="model"   
+                    id="modelSelect"     
+                >   
+                    <option [ngValue]="model" *ngFor="let model of vehicleModels">{{model.description}}</option>
+                </select>
+            </div>
+            <div class="col" *ngIf="selectedModel">
+                <label for="color">Color</label>
+                <select 
+                    [(ngModel)]="selectedColor" 
+                    name="color" 
+                    (ngModelChange)="onColorChangeApplied()"
+                    id="colorSelect"
+                >
+                    <option [ngValue]="color" *ngFor="let color of selectedModel.colors">{{color.description}}</option>
+                </select>
+            </div>
+        </div>
+    </form>
+</div>
