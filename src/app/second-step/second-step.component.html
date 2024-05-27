@@ -12,7 +12,7 @@
         
        <div *ngIf="vehicleOptions?.towHitch">
         <label for="towHitch">Tow hitch? </label>
-        <input type="checkbox" id="includeTow" name="towHitch" [(ngModel)]="towHitchChecked" (ngModelChange)="onSelecConfigChanged()">
+        <input type="checkbox" id="includeTow" name="towHitch" [(ngModel)]="towHitchChecked" (ngModelChange)="onTowHitchApplied()">
         </div>
  
         <div *ngIf="vehicleOptions?.yoke">

@@ -1,1 +1,33 @@
-<p>third-step works!</p>
+<div>
+    <h1>Step 3 : Summary</h1>
+    <h2>Your Tesla : {{selectedVehicle.model?.description}}</h2>
+    <div class="row">
+        <div class="col-sm-6">{{selectedVehicle.config?.description}}</div>
+        <div class="col-sm-6">{{selectedVehicle.config?.price | number:'1.2-2' | prependDollar}}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">Range: {{selectedVehicle.config?.range}} miles - Max speed {{selectedVehicle.config?.speed}}</div>
+    </div>
+    
+    <div class="row">
+        <div class="col-sm-6">{{selectedVehicle.color?.description}}</div>
+        <div class="col-sm-6">{{selectedVehicle.color?.price | number: '1.2-2' | prependDollar}}</div>
+    </div>
+
+    <div class="row" *ngIf="selectedVehicle.tow">
+        <div class="col-sm-6">Tow Hitch Package</div>
+        <div class="col-sm-6">{{1000 | number:'1.2-2' | prependDollar  }}</div>
+    </div>
+
+    <div *ngIf="selectedVehicle.yoke" class="row">
+        <div class="col-sm-6">Yoke steering wheel Package</div>
+        <div class="col-sm-6">{{1000 | number: '1.2-2' | prependDollar }}</div>
+      </div>
+
+    <hr>
+    <div class="row">
+        <div class="col-sm-6">Total</div>
+        <div class="col-sm-6">{{selectedVehicle.getTotalCost()  | number: '1.2-2' | prependDollar}}</div>
+    </div>
+</div>
